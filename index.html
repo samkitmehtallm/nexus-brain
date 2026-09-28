@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nexus Brain</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <div>
+          <h1>Nexus Brain</h1>
+          <p class="tagline">Everything due, in the order it actually matters.</p>
+        </div>
+        <a class="portal-link" href="https://students.mesaschool.co.in/student/lms" target="_blank" rel="noopener">
+          Open Nexus ↗
+        </a>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <!-- status strip: the answer to "what do I need to worry about" -->
+      <section id="summary" class="summary" aria-label="Status summary"></section>
+
+      <nav class="tabs" role="tablist">
+        <button class="tab on" data-view="urgency" role="tab">By urgency</button>
+        <button class="tab" data-view="course" role="tab">By course</button>
+        <button class="tab" data-view="add" role="tab">Add / import</button>
+      </nav>
+
+      <section id="view-urgency" class="view"></section>
+
+      <section id="view-course" class="view" hidden></section>
+
+      <!-- ===== add / import ===== -->
+      <section id="view-add" class="view" hidden>
+        <div class="card">
+          <h2>Paste from Nexus</h2>
+          <p class="muted">
+            Nexus needs a login, so nothing can be pulled automatically. Copy the assignment list
+            out of the portal and paste it here — dates and titles get read out of the text. Nothing
+            is saved until you confirm.
+          </p>
+          <textarea id="paste-box" rows="7" placeholder="e.g.
+L2 Assessment Part B
+Due: Sunday, 27 September, 11:59 PM
+Quiz 3
+2026-10-09"></textarea>
+          <div class="row-controls">
+            <label for="paste-course">Add to course</label>
+            <select id="paste-course"></select>
+            <button id="btn-parse" class="primary">Read this</button>
+          </div>
+          <div id="parse-preview"></div>
+          <p id="import-error" class="error" hidden></p>
+        </div>
+
+        <div class="card">
+          <h2>Add one manually</h2>
+          <div class="row">
+            <div class="field">
+              <label for="new-title">Title</label>
+              <input id="new-title" type="text" placeholder="e.g. Case 2 pre-read" />
+            </div>
+            <div class="field">
+              <label for="new-course">Course</label>
+              <select id="new-course"></select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="new-due">Due (date &amp; time)</label>
+              <input id="new-due" type="datetime-local" />
+            </div>
+            <div class="field">
+              <label for="new-weight">Weight (optional)</label>
+              <input id="new-weight" type="text" placeholder="e.g. 50% of grade" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="new-detail">What it actually asks for</label>
+            <textarea id="new-detail" rows="3" placeholder="The brief, in your own words"></textarea>
+          </div>
+          <button id="btn-add" class="primary">Add assignment</button>
+          <p id="add-error" class="error" hidden></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="wrap footer">
+      <p class="muted small">
+        Deadlines are read in IST. A deliverable ticked here is not submitted anywhere — Nexus
+        is still where you hand work in.
+      </p>
+    </footer>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

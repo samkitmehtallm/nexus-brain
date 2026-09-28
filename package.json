@@ -1,0 +1,9 @@
+{
+  "name": "nexus-brain",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A brain for the Nexus LMS: deadline flagging, deliverable tracking, and curriculum structure.",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "dependencies": { "@supabase/supabase-js": "^2.45.4" }
+}
